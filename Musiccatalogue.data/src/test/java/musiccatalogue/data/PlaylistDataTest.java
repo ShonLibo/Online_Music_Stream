@@ -38,5 +38,8 @@ class PlaylistDataTest {
 
     @Test
     void getSongCount() {
+        assertEquals(0, playlist.getSongCount());
+        playlist.addSong("Song1", "Artist1");
+        assertEquals(1, playlist.getSongCount());
     }
 }
