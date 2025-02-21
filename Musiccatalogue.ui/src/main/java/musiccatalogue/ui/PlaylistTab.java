@@ -34,10 +34,10 @@ public class PlaylistTab {
             String title = JOptionPane.showInputDialog(panel, "Enter Song Title:");
             String artist = JOptionPane.showInputDialog(panel, "Enter Artist Name:");
 
-            if (title != null && !title.trim().isEmpty() && artist != null && !artist.trim().isEmpty()) {
-                playlistData.addSong(title.trim(), artist.trim());
-            } else {
-                JOptionPane.showMessageDialog(panel, "Title and Artist cannot be empty!", "Input Error", JOptionPane.ERROR_MESSAGE);
+            try {
+                playlistData.addSong(title, artist);
+            } catch (IllegalArgumentException ex) {
+                JOptionPane.showMessageDialog(panel, ex.getMessage(), "Input Error", JOptionPane.ERROR_MESSAGE);
             }
         });
 
@@ -48,10 +48,10 @@ public class PlaylistTab {
         removeButton.setFont(new Font("SansSerif", Font.BOLD, 14));
         removeButton.addActionListener(e -> {
             int selectedRow = playlistTable.getSelectedRow();
-            if (selectedRow != -1) {
+            try {
                 playlistData.removeSong(selectedRow);
-            } else {
-                JOptionPane.showMessageDialog(panel, "Please select a song to remove", "Error", JOptionPane.ERROR_MESSAGE);
+            } catch (IndexOutOfBoundsException ex) {
+                JOptionPane.showMessageDialog(panel, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
 
