@@ -1,10 +1,17 @@
 package musiccatalogue.ui;
 
+import musiccatalogue.data.UserData;
 import javax.swing.*;
 import java.awt.*;
 import javax.swing.DefaultListModel;
 
 public class SignUpTab {
+    private UserData userData;
+
+    public SignUpTab(UserData userData) {
+        this.userData = userData;
+    }
+
     public JPanel createSignUpTab() {
         JPanel panel = new JPanel(new GridBagLayout());
         panel.setBackground(new Color(240, 240, 240));
@@ -42,9 +49,6 @@ public class SignUpTab {
         JPasswordField passwordField = new JPasswordField(15);
         panel.add(passwordField, gbc);
 
-        // List Model to store users
-        DefaultListModel<String> userList = new DefaultListModel<>();
-
         // Submit and View Buttons
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 15, 10));
         JButton submitButton = new JButton("Submit");
@@ -76,7 +80,7 @@ public class SignUpTab {
             }
 
             // Save user to list
-            userList.addElement(firstName + " " + lastName + " - " + email);
+            userData.addUser(firstName, lastName, email);
             JOptionPane.showMessageDialog(panel, "Sign Up Successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
 
             // Clear fields after submission
@@ -88,10 +92,10 @@ public class SignUpTab {
 
         // View Button Action
         viewButton.addActionListener(e -> {
-            if (userList.isEmpty()) {
+            if (userData.getUsers().isEmpty()) {
                 JOptionPane.showMessageDialog(panel, "No users signed up yet.", "Info", JOptionPane.INFORMATION_MESSAGE);
             } else {
-                JList<String> listView = new JList<>(userList);
+                JList<String> listView = new JList<>(userData.getUsers().toArray(new String[0]));
                 JOptionPane.showMessageDialog(panel, new JScrollPane(listView), "Signed-Up Users", JOptionPane.INFORMATION_MESSAGE);
             }
         });
