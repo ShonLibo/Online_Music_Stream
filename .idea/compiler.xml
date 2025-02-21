@@ -7,8 +7,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Musiccatalogue.data" />
-        <module name="Musiccatalogue.ui" />
         <module name="Musiccatalogue.core" />
+        <module name="Musiccatalogue.ui" />
       </profile>
     </annotationProcessing>
   </component>
