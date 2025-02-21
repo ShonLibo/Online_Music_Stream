@@ -18,7 +18,7 @@ public class PlaylistData {
         tableModel.addRow(new Object[]{title.trim(), artist.trim()});
     }
 
-    // Public method to remove a song by index
+
     public void removeSong(int index) {
         if (index < 0 || index >= tableModel.getRowCount()) {
             throw new IndexOutOfBoundsException("Invalid index: " + index);
@@ -26,12 +26,11 @@ public class PlaylistData {
         tableModel.removeRow(index);
     }
 
-    // Public method to get the table model (read-only access)
     public DefaultTableModel getTableModel() {
         return tableModel;
     }
 
-    // Public method to get the number of songs in the playlist
+
     public int getSongCount() {
         return tableModel.getRowCount();
     }
