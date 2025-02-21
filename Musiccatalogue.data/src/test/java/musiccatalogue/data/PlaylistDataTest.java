@@ -34,6 +34,13 @@ class PlaylistDataTest {
 
     @Test
     void getTableModel() {
+        DefaultTableModel model = playlist.getTableModel();
+        assertNotNull(model);
+        assertEquals(0, model.getRowCount());
+        assertEquals(2, model.getColumnCount());
+        assertEquals("Title", model.getColumnName(0));
+        assertEquals("Artist", model.getColumnName(1));
+
     }
 
     @Test
