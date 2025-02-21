@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Musiccatalogue.data" />
         <module name="Musiccatalogue.ui" />
+        <module name="Musiccatalogue.core" />
       </profile>
     </annotationProcessing>
   </component>
