@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Musiccatalogue.data.iml" filepath="$PROJECT_DIR$/Musiccatalogue.data.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Online_Music_Stream.iml" filepath="$PROJECT_DIR$/.idea/Online_Music_Stream.iml" />
     </modules>
   </component>

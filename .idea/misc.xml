@@ -5,6 +5,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/Musiccatalogue.data/pom.xml" />
+        <option value="$PROJECT_DIR$/Musiccatalogue.ui/pom.xml" />
       </list>
     </option>
   </component>
