@@ -7,7 +7,7 @@ import java.awt.*;
 public class MusicStreamApp extends JFrame {
 
     public MusicStreamApp() {
-        // Set up the JFrame
+        // Setting up the main JFrame
         setTitle("Online Music Stream");
         setSize(700, 400); // Adjusted frame size
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
