@@ -3,7 +3,6 @@ package musiccatalogue.ui;
 import musiccatalogue.data.UserData;
 import javax.swing.*;
 import java.awt.*;
-import javax.swing.DefaultListModel;
 
 public class SignUpTab {
     private UserData userData;
@@ -74,25 +73,21 @@ public class SignUpTab {
             String email = emailField.getText().trim();
             String password = new String(passwordField.getPassword()).trim();
 
-            if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || password.isEmpty()) {
-                JOptionPane.showMessageDialog(panel, "All fields must be filled!", "Error", JOptionPane.ERROR_MESSAGE);
-                return;
+            try {
+                userData.addUser(firstName, lastName, email);
+                JOptionPane.showMessageDialog(panel, "Sign Up Successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
+                firstNameField.setText("");
+                lastNameField.setText("");
+                emailField.setText("");
+                passwordField.setText("");
+            } catch (IllegalArgumentException ex) {
+                JOptionPane.showMessageDialog(panel, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
-
-            // Save user to list
-            userData.addUser(firstName, lastName, email);
-            JOptionPane.showMessageDialog(panel, "Sign Up Successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
-
-            // Clear fields after submission
-            firstNameField.setText("");
-            lastNameField.setText("");
-            emailField.setText("");
-            passwordField.setText("");
         });
 
         // View Button Action
         viewButton.addActionListener(e -> {
-            if (userData.getUsers().isEmpty()) {
+            if (userData.getUserCount() == 0) {
                 JOptionPane.showMessageDialog(panel, "No users signed up yet.", "Info", JOptionPane.INFORMATION_MESSAGE);
             } else {
                 JList<String> listView = new JList<>(userData.getUsers().toArray(new String[0]));
