@@ -27,7 +27,12 @@ class UserDataTest {
                 userData.addUser("", "Doe", "john.doe@example.com"), "Should throw exception for empty first name"
         );
     }
+    @Test
+    void testGetUserCount() {
+        UserData userData = new UserData();
+        assertEquals(0, userData.getUserCount(), "Initial user count should be zero");
 
-
-
+        userData.addUser("Jane", "Doe", "jane.doe@example.com");
+        assertEquals(1, userData.getUserCount(), "User count should be one after adding a user");
+    }
 }
