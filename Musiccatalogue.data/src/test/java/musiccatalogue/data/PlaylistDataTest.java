@@ -27,6 +27,9 @@ class PlaylistDataTest {
 
     @Test
     void removeSong() {
+        playlist.addSong("Song Title", "Artist Name");
+        playlist.removeSong(0);
+        assertEquals(0, playlist.getSongCount());
     }
 
     @Test
