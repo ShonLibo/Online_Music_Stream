@@ -15,6 +15,18 @@ class UserDataTest {
         assertEquals(1, users.size(), "User list should contain one user");
         assertEquals("John Doe - john.doe@example.com", users.get(0));
     }
+    @Test
+    void testAddUserWithInvalidInput() {
+        UserData userData = new UserData();
+
+        assertThrows(IllegalArgumentException.class, () ->
+                userData.addUser(null, "Doe", "john.doe@example.com"), "Should throw exception for null first name"
+        );
+
+        assertThrows(IllegalArgumentException.class, () ->
+                userData.addUser("", "Doe", "john.doe@example.com"), "Should throw exception for empty first name"
+        );
+    }
 
 
 
