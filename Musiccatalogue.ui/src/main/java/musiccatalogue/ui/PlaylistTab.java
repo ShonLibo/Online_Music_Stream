@@ -1,17 +1,22 @@
 package musiccatalogue.ui;
 
+import musiccatalogue.data.PlaylistData;
 import javax.swing.*;
 import java.awt.*;
-import javax.swing.table.DefaultTableModel;
 
 public class PlaylistTab {
+    private PlaylistData playlistData;
+
+    public PlaylistTab(PlaylistData playlistData) {
+        this.playlistData = playlistData;
+    }
+
     public JPanel createPlaylistTab() {
         JPanel panel = new JPanel(new BorderLayout());
         panel.setBackground(new Color(240, 240, 240)); // Light gray background
 
         // Table Model & Table
-        DefaultTableModel tableModel = new DefaultTableModel(new Object[]{"Title", "Artist"}, 0);
-        JTable playlistTable = new JTable(tableModel);
+        JTable playlistTable = new JTable(playlistData.getTableModel());
         playlistTable.setFont(new Font("SansSerif", Font.PLAIN, 14));
         playlistTable.setRowHeight(25);
         JScrollPane scrollPane = new JScrollPane(playlistTable);
@@ -30,7 +35,7 @@ public class PlaylistTab {
             String artist = JOptionPane.showInputDialog(panel, "Enter Artist Name:");
 
             if (title != null && !title.trim().isEmpty() && artist != null && !artist.trim().isEmpty()) {
-                tableModel.addRow(new Object[]{title.trim(), artist.trim()});
+                playlistData.addSong(title.trim(), artist.trim());
             } else {
                 JOptionPane.showMessageDialog(panel, "Title and Artist cannot be empty!", "Input Error", JOptionPane.ERROR_MESSAGE);
             }
@@ -44,7 +49,7 @@ public class PlaylistTab {
         removeButton.addActionListener(e -> {
             int selectedRow = playlistTable.getSelectedRow();
             if (selectedRow != -1) {
-                tableModel.removeRow(selectedRow);
+                playlistData.removeSong(selectedRow);
             } else {
                 JOptionPane.showMessageDialog(panel, "Please select a song to remove", "Error", JOptionPane.ERROR_MESSAGE);
             }
