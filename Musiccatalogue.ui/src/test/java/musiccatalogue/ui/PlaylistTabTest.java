@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class PlaylistTabTest {
-    private PlaylistTab playlistTab;
+    public PlaylistTab playlistTab;
 
     @BeforeEach
     void setUp() {
