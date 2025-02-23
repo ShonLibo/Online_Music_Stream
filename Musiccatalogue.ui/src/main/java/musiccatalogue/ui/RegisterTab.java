@@ -10,24 +10,40 @@ public class RegisterTab {
     private JCheckBox termsCheckbox;
 
     public Component CreateRegisterTab() {
+        // Initialize the panel
         panel = new JPanel(new GridBagLayout());
         panel.setBackground(new Color(240, 240, 240));
+
+        // Initialize the components
+        userField = new JTextField(15);
+        passField = new JPasswordField(15);
+        termsCheckbox = new JCheckBox("Accept terms and conditions");
+
+        // Set up the layout
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 10, 5, 10);
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
-        // Username Field
-        JLabel userLabel = new JLabel("Username:");
-        userField = new JTextField(15);
+        // Add components to the panel
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        panel.add(new JLabel("Username:"), gbc);
 
-        // Password Field
-        JLabel passLabel = new JLabel("Password:");
-        passField = new JPasswordField(15);
+        gbc.gridx = 1;
+        panel.add(userField, gbc);
 
-        // Terms and Conditions Checkbox
-        termsCheckbox = new JCheckBox("Accept terms and conditions");
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        panel.add(new JLabel("Password:"), gbc);
 
-        // Submit Button
+        gbc.gridx = 1;
+        panel.add(passField, gbc);
+
+        gbc.gridx = 1;
+        gbc.gridy = 2;
+        panel.add(termsCheckbox, gbc);
+
+        // Submit button
         JButton submitButton = new JButton("Submit");
         submitButton.setBackground(new Color(36, 14, 62));
         submitButton.setForeground(Color.WHITE);
@@ -39,35 +55,13 @@ public class RegisterTab {
             }
         });
 
-        // Add components to the panel
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        panel.add(userLabel, gbc);
-
-        gbc.gridx = 1;
-        panel.add(userField, gbc);
-
-        gbc.gridx = 0;
-        gbc.gridy = 1;
-        panel.add(passLabel, gbc);
-
-        gbc.gridx = 1;
-        panel.add(passField, gbc);
-
-        gbc.gridx = 1;
-        gbc.gridy = 2;
-        panel.add(termsCheckbox, gbc);
-
         gbc.gridx = 1;
         gbc.gridy = 3;
         panel.add(submitButton, gbc);
         return panel;
     }
 
-    public JPanel getPanel() {
-        return panel;
-    }
-
+    // Expose the components for testing
     public JTextField getUserField() {
         return userField;
     }
@@ -78,5 +72,9 @@ public class RegisterTab {
 
     public JCheckBox getTermsCheckbox() {
         return termsCheckbox;
+    }
+
+    public JPanel getPanel() {
+        return panel;
     }
 }
