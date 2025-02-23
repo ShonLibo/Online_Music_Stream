@@ -13,17 +13,18 @@ class PlaylistTabTest {
 
     @BeforeEach
     void setUp() {
-        PlaylistData Playlist = new PlaylistData();
+        PlaylistData playlistData = new PlaylistData();
+        playlistTab = new PlaylistTab(playlistData);
     }
 
     @Test
     void testCreatePlaylistTab() {
         JPanel panel = playlistTab.createPlaylistTab();
 
-        // Check if panel is not null
+
         assertNotNull(panel);
 
-        // Check if panel has components
+
         assertTrue(panel.getComponentCount() > 0);
 
         boolean hasTable = false;
