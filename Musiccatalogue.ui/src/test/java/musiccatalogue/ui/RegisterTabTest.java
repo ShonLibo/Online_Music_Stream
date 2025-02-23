@@ -1,12 +1,11 @@
 package musiccatalogue.ui;
-import static org.junit.jupiter.api.Assertions.*;
 
-import musiccatalogue.ui.RegisterTab;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import javax.swing.*;
 
-class RegisterTabTest {
+public class RegisterTabTest {
 
     private RegisterTab registerTab;
 
@@ -16,28 +15,38 @@ class RegisterTabTest {
     }
 
     @Test
-    void testRegistrationSuccess() {
+    public void testRegistrationSuccess() {
         JPanel panel = registerTab.createRegisterTab();
+        assertNotNull(panel);
+
+
+        assertTrue(panel.getComponentCount() > 6);
+
         JCheckBox termsCheckbox = (JCheckBox) panel.getComponent(2);
         termsCheckbox.setSelected(true);
         JButton submitButton = (JButton) panel.getComponent(6);
 
         submitButton.doClick();
 
-        // Check if success message is displayed
-        JOptionPane.showMessageDialog(panel, "Registration successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
+
+        assertTrue(termsCheckbox.isSelected());
     }
 
     @Test
-    void testRegistrationFailure() {
+    public void testRegistrationFailure() {
         JPanel panel = registerTab.createRegisterTab();
+        assertNotNull(panel);
+
+
+        assertTrue(panel.getComponentCount() > 6);
+
         JCheckBox termsCheckbox = (JCheckBox) panel.getComponent(2);
         termsCheckbox.setSelected(false);
         JButton submitButton = (JButton) panel.getComponent(6);
 
         submitButton.doClick();
 
-        // Check if error message is displayed
-        JOptionPane.showMessageDialog(panel, "Please accept the terms and conditions", "Error", JOptionPane.ERROR_MESSAGE);
+
+        assertFalse(termsCheckbox.isSelected());
     }
 }

@@ -5,11 +5,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import javax.swing.*;
 import java.awt.*;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
-class PlaylistTabTest {
-    public PlaylistTab playlistTab;
+public class PlaylistTabTest {
+    private PlaylistTab playlistTab;
 
     @BeforeEach
     void setUp() {
@@ -18,12 +17,10 @@ class PlaylistTabTest {
     }
 
     @Test
-    void testCreatePlaylistTab() {
+    public void testCreatePlaylistTab() {
         JPanel panel = playlistTab.createPlaylistTab();
 
-
         assertNotNull(panel);
-
 
         assertTrue(panel.getComponentCount() > 0);
 
