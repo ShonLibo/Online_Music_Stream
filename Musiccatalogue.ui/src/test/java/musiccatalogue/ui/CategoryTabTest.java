@@ -1,18 +1,17 @@
 package musiccatalogue.ui;
 
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 import javax.swing.*;
 import java.awt.*;
 import static org.junit.jupiter.api.Assertions.*;
 
- class CategoryTabTest {
+class CategoryTabTest {
 
     @Test
     void testCreateCategoryTab() {
         CategoryTab categoryTab = new CategoryTab();
         JPanel panel = categoryTab.createCategoryTab();
 
-        // Check if panel is not null
         assertNotNull(panel);
 
         // Check if panel has components
