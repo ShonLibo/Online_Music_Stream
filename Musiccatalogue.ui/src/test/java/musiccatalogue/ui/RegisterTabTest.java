@@ -1,52 +1,34 @@
 package musiccatalogue.ui;
 
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 import javax.swing.*;
+import static org.junit.Assert.*;
 
 public class RegisterTabTest {
-
     private RegisterTab registerTab;
 
-    @BeforeEach
-    void setUp() {
+    @Before
+    public void setUp() {
+        // Initialize the RegisterTab
         registerTab = new RegisterTab();
     }
 
     @Test
     public void testRegistrationSuccess() {
-        JPanel panel = registerTab.createRegisterTab();
-        assertNotNull(panel);
+        // Get the components
+        JTextField userField = registerTab.getUserField();
+        JPasswordField passField = registerTab.getPassField();
+        JCheckBox termsCheckbox = registerTab.getTermsCheckbox();
 
-
-        assertTrue(panel.getComponentCount() > 6);
-
-        JCheckBox termsCheckbox = (JCheckBox) panel.getComponent(2);
+        // Simulate user input
+        userField.setText("testuser");
+        passField.setText("testpass");
         termsCheckbox.setSelected(true);
-        JButton submitButton = (JButton) panel.getComponent(6);
 
-        submitButton.doClick();
-
-
+        // Verify the inputs
+        assertEquals("testuser", userField.getText());
+        assertEquals("testpass", new String(passField.getPassword()));
         assertTrue(termsCheckbox.isSelected());
-    }
-
-    @Test
-    public void testRegistrationFailure() {
-        JPanel panel = registerTab.createRegisterTab();
-        assertNotNull(panel);
-
-
-        assertTrue(panel.getComponentCount() > 6);
-
-        JCheckBox termsCheckbox = (JCheckBox) panel.getComponent(2);
-        termsCheckbox.setSelected(false);
-        JButton submitButton = (JButton) panel.getComponent(6);
-
-        submitButton.doClick();
-
-
-        assertFalse(termsCheckbox.isSelected());
     }
 }

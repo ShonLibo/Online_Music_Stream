@@ -2,17 +2,17 @@ package musiccatalogue.data;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import javax.swing.table.DefaultTableModel;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class PlaylistDataTest {
     private PlaylistData playlist;
+    
 
     @BeforeEach
     void setUp() {
         playlist = new PlaylistData();
+        
 
     }
 
@@ -29,7 +29,7 @@ class PlaylistDataTest {
     void removeSong() {
         playlist.addSong("Song Title", "Artist Name");
         playlist.removeSong(0);
-        assertEquals(0, playlist.getSongCount());
+        assertEquals(0, playlist.addSong());
     }
 
     @Test
@@ -45,8 +45,8 @@ class PlaylistDataTest {
 
     @Test
     void getSongCount() {
-        assertEquals(0, playlist.getSongCount());
+        assertEquals(0, playlist.addSong());
         playlist.addSong("Song1", "Artist1");
-        assertEquals(1, playlist.getSongCount());
+        assertEquals(1, playlist.addSong());
     }
 }
