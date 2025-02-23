@@ -1,6 +1,5 @@
 package musiccatalogue.data;
 
-
 import org.junit.Before;
 import org.junit.Test;
 import javax.swing.table.DefaultTableModel;
@@ -8,21 +7,6 @@ import static org.junit.Assert.*;
 
 public class PlaylistDataTest {
     private PlaylistData playlistData;
-
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import javax.swing.table.DefaultTableModel;
-import static org.junit.jupiter.api.Assertions.*;
-
-class PlaylistDataTest {
-    private PlaylistData playlist;
-    
-
-    @BeforeEach
-    void setUp() {
-        playlist = new PlaylistData();
-        
-
 
     @Before
     public void setUp() {
@@ -42,20 +26,19 @@ class PlaylistDataTest {
         assertEquals("Artist Name", tableModel.getValueAt(0, 1)); // Check the artist
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void testAddSongWithEmptyTitle() {
         // Attempt to add a song with an empty title
         playlistData.addSong("", "Artist Name");
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void testAddSongWithEmptyArtist() {
         // Attempt to add a song with an empty artist
         playlistData.addSong("Song Title", "");
     }
 
     @Test
-<<<<<<< HEAD
     public void testRemoveSong() {
         // Add a song
         playlistData.addSong("Song Title", "Artist Name");
@@ -82,29 +65,5 @@ class PlaylistDataTest {
         assertEquals(2, tableModel.getColumnCount()); // Check the number of columns
         assertEquals("Title", tableModel.getColumnName(0)); // Check the first column name
         assertEquals("Artist", tableModel.getColumnName(1)); // Check the second column name
-
-    void removeSong() {
-        playlist.addSong("Song Title", "Artist Name");
-        playlist.removeSong(0);
-        assertEquals(0, playlist.addSong());
-    }
-
-    @Test
-    void getTableModel() {
-        DefaultTableModel model = playlist.getTableModel();
-        assertNotNull(model);
-        assertEquals(0, model.getRowCount());
-        assertEquals(2, model.getColumnCount());
-        assertEquals("Title", model.getColumnName(0));
-        assertEquals("Artist", model.getColumnName(1));
-
-    }
-
-    @Test
-    void getSongCount() {
-        assertEquals(0, playlist.addSong());
-        playlist.addSong("Song1", "Artist1");
-        assertEquals(1, playlist.addSong());
-
     }
 }
