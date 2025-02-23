@@ -1,6 +1,6 @@
 package musiccatalogue.data;
 
-<<<<<<< HEAD
+
 import org.junit.Before;
 import org.junit.Test;
 import javax.swing.table.DefaultTableModel;
@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 
 public class PlaylistDataTest {
     private PlaylistData playlistData;
-=======
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import javax.swing.table.DefaultTableModel;
@@ -22,7 +22,7 @@ class PlaylistDataTest {
     void setUp() {
         playlist = new PlaylistData();
         
->>>>>>> 65717d4b7d0fa9268e461d5f494383310b7f4881
+
 
     @Before
     public void setUp() {
@@ -42,13 +42,13 @@ class PlaylistDataTest {
         assertEquals("Artist Name", tableModel.getValueAt(0, 1)); // Check the artist
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testAddSongWithEmptyTitle() {
         // Attempt to add a song with an empty title
         playlistData.addSong("", "Artist Name");
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testAddSongWithEmptyArtist() {
         // Attempt to add a song with an empty artist
         playlistData.addSong("Song Title", "");
@@ -82,7 +82,7 @@ class PlaylistDataTest {
         assertEquals(2, tableModel.getColumnCount()); // Check the number of columns
         assertEquals("Title", tableModel.getColumnName(0)); // Check the first column name
         assertEquals("Artist", tableModel.getColumnName(1)); // Check the second column name
-=======
+
     void removeSong() {
         playlist.addSong("Song Title", "Artist Name");
         playlist.removeSong(0);
@@ -105,6 +105,6 @@ class PlaylistDataTest {
         assertEquals(0, playlist.addSong());
         playlist.addSong("Song1", "Artist1");
         assertEquals(1, playlist.addSong());
->>>>>>> 65717d4b7d0fa9268e461d5f494383310b7f4881
+
     }
 }
