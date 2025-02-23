@@ -25,4 +25,16 @@ jobs:
           python -m pip install --upgrade pip
           pip install pylint
 
-   
+      - name: Verify pylint installation
+        run: |
+          echo "Verifying pylint installation..."
+          pylint --version
+
+      - name: Run pylint
+        run: |
+          echo "Running pylint..."
+          if git ls-files '*.py' | grep -q .; then
+            pylint $(git ls-files '*.py')
+          else
+            echo "No Python files to lint."
+          fi
