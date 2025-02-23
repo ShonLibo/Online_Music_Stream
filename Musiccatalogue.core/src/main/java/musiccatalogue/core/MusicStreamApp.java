@@ -24,7 +24,7 @@ public class MusicStreamApp extends JFrame {
         // Create a JTabbedPane
         JTabbedPane tabbedPane = new JTabbedPane();
         tabbedPane.addTab("Home", new HomeTab().createHomeTab());
-        tabbedPane.addTab("Register", new RegisterTab().createRegisterTab());
+        tabbedPane.addTab("Register", new RegisterTab().CreateRegisterTab());
         tabbedPane.addTab("SignUp", new SignUpTab(userData).createSignUpTab());
         tabbedPane.addTab("Category", new CategoryTab().createCategoryTab());
         tabbedPane.addTab("Playlist", new PlaylistTab(playlistData).createPlaylistTab());
