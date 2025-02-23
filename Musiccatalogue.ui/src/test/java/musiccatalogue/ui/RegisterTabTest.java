@@ -33,7 +33,7 @@ public class RegisterTabTest {
     }
 
     @Test
-    public void testRegistrationFailure() {  // ✅ Made test method public
+    public void testRegistrationFailure() {
         JPanel panel = registerTab.createRegisterTab();
         assertNotNull(panel);
 
