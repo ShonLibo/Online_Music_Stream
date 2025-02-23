@@ -3,7 +3,10 @@ package musiccatalogue.ui;
 import org.junit.Before;
 import org.junit.Test;
 import javax.swing.*;
+<<<<<<< HEAD
 import java.awt.*;
+=======
+>>>>>>> 65717d4b7d0fa9268e461d5f494383310b7f4881
 import static org.junit.Assert.*;
 
 public class RegisterTabTest {
@@ -18,6 +21,7 @@ public class RegisterTabTest {
     }
 
     @Test
+<<<<<<< HEAD
     public void testCreateRegisterTab() {
         // Verify that the panel is created and not null
         JPanel panel = registerTab.getPanel();
@@ -78,4 +82,22 @@ public class RegisterTabTest {
         assertEquals("testpass", new String(passField.getPassword()));
         assertTrue(termsCheckbox.isSelected());
     }
+=======
+    public void testRegistrationSuccess() {
+        // Get the components
+        JTextField userField = registerTab.getUserField();
+        JPasswordField passField = registerTab.getPassField();
+        JCheckBox termsCheckbox = registerTab.getTermsCheckbox();
+
+        // Simulate user input
+        userField.setText("testuser");
+        passField.setText("testpass");
+        termsCheckbox.setSelected(true);
+
+        // Verify the inputs
+        assertEquals("testuser", userField.getText());
+        assertEquals("testpass", new String(passField.getPassword()));
+        assertTrue(termsCheckbox.isSelected());
+    }
+>>>>>>> 65717d4b7d0fa9268e461d5f494383310b7f4881
 }
