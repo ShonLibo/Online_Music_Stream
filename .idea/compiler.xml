@@ -11,5 +11,8 @@
         <module name="Musiccatalogue.ui" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Musiccatalogue.Test" target="23" />
+    </bytecodeTargetLevel>
   </component>
 </project>
