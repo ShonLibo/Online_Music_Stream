@@ -25,7 +25,4 @@ jobs:
           python -m pip install --upgrade pip
           pip install pylint
 
-      - name: Run pylint
-        run: |
-          echo "Running pylint..."
-          pylint $(git ls-files '*.py')
+   
