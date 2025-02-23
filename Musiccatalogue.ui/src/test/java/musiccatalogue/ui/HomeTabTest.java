@@ -5,17 +5,16 @@ import javax.swing.*;
 import java.awt.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-class HomeTabTest {
+public class HomeTabTest {
 
     @Test
-    void testCreateHomeTab() {
+    public void testCreateHomeTab() {
         HomeTab homeTab = new HomeTab();
         JPanel panel = homeTab.createHomeTab();
 
-        // Check if panel is not null
         assertNotNull(panel);
 
-        // Check if panel has components
+
         assertTrue(panel.getComponentCount() > 0);
 
         boolean hasLabel = false;
