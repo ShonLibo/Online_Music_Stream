@@ -10,16 +10,15 @@ public class PlaylistDataTest {
 
     @Before
     public void setUp() {
-        // Initialize PlaylistData before each test
+
         playlistData = new PlaylistData();
     }
 
     @Test
     public void testAddSong() {
-        // Add a song
         playlistData.addSong("Song Title", "Artist Name");
 
-        // Verify the song was added
+
         DefaultTableModel tableModel = playlistData.getTableModel();
         assertEquals(1, tableModel.getRowCount()); // Check that one row was added
         assertEquals("Song Title", tableModel.getValueAt(0, 0)); // Check the title

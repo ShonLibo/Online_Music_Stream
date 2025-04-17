@@ -10,8 +10,11 @@ class MusicStreamAppTest {
     @Test
     void testMusicStreamAppInitialization() {
         SwingUtilities.invokeLater(() -> {
+
             MusicStreamApp app = new MusicStreamApp();
-            assertNotNull(app, "Application should be initialized");
+            assertNotNull(app);
+
+            assertNotNull(app);
             assertEquals("Online Music Stream", app.getTitle());
             assertEquals(700, app.getWidth());
             assertEquals(400, app.getHeight());
@@ -21,6 +24,4 @@ class MusicStreamAppTest {
             assertTrue(components.length > 0);
         });
     }
-
-
 }

@@ -17,7 +17,7 @@ public class MusicStreamApp extends JFrame {
 
         // Set up the JFrame
         setTitle("Online Music Stream");
-        setSize(700, 400); // Adjusted frame size
+        setSize(700, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
